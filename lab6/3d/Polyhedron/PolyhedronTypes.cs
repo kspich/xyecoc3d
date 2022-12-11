@@ -9,7 +9,7 @@ namespace lab6
 {
     public enum PolyhedronType
     {
-        Tetrahedron, Oktahedron, Geksahedron, Ikosahedron, Dodahedron
+        Tetrahedron, Oktahedron, Geksahedron, //Ikosahedron, Dodahedron
     }
 
     public static class PolyhedronTypeExtensionMethods
@@ -24,10 +24,10 @@ namespace lab6
                     return "Гексаэдр";
                 case PolyhedronType.Oktahedron:
                     return "Октаэдр";
-                case PolyhedronType.Ikosahedron:
-                    return "Икосаэдр";
-                case PolyhedronType.Dodahedron:
-                    return "Додекаэдр";
+               // case PolyhedronType.Ikosahedron:
+                  //  return "Икосаэдр";
+               // case PolyhedronType.Dodahedron:
+                 //   return "Додекаэдр";
                 default:
                     throw new ArgumentException("Unknown polyhedron type");
             }

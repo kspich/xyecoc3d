@@ -53,21 +53,12 @@
             this.scalingZTextBox = new System.Windows.Forms.TextBox();
             this.scalingYTextBox = new System.Windows.Forms.TextBox();
             this.scalingXTextBox = new System.Windows.Forms.TextBox();
-            this.scalingZLabel = new System.Windows.Forms.Label();
-            this.scalingYLabel = new System.Windows.Forms.Label();
-            this.scalingXLabel = new System.Windows.Forms.Label();
             this.rotationGroupBox = new System.Windows.Forms.GroupBox();
             this.rotateButton = new System.Windows.Forms.Button();
             this.rotationZTextBox = new System.Windows.Forms.TextBox();
             this.rotationYTextBox = new System.Windows.Forms.TextBox();
             this.rotationXTextBox = new System.Windows.Forms.TextBox();
-            this.rotaionDegreesZLabel = new System.Windows.Forms.Label();
-            this.rotaionDegreesYLabel = new System.Windows.Forms.Label();
-            this.rotaionDegreesXLabel = new System.Windows.Forms.Label();
             this.translationGroupBox = new System.Windows.Forms.GroupBox();
-            this.translationZLabel = new System.Windows.Forms.Label();
-            this.translationYLabel = new System.Windows.Forms.Label();
-            this.translationXLabel = new System.Windows.Forms.Label();
             this.translationXTextBox = new System.Windows.Forms.TextBox();
             this.translateButton = new System.Windows.Forms.Button();
             this.translationYTextBox = new System.Windows.Forms.TextBox();
@@ -156,6 +147,10 @@
             this.lightViewPointZTextBox = new System.Windows.Forms.TextBox();
             this.lightViewPointYTextBox = new System.Windows.Forms.TextBox();
             this.lightViewPointXTextBox = new System.Windows.Forms.TextBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.polyhedronPictureBox)).BeginInit();
             this.rotationAroundEdgeGroupBox.SuspendLayout();
             this.affineTransformationsGroupBox.SuspendLayout();
@@ -173,16 +168,19 @@
             this.groupBox3.SuspendLayout();
             this.texturingGroupBox.SuspendLayout();
             this.lightViewPointGroupBox.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // polyhedronPictureBox
             // 
-            this.polyhedronPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.polyhedronPictureBox.Location = new System.Drawing.Point(6, 6);
+            this.polyhedronPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.polyhedronPictureBox.Location = new System.Drawing.Point(0, 0);
             this.polyhedronPictureBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.polyhedronPictureBox.Name = "polyhedronPictureBox";
-            this.polyhedronPictureBox.Size = new System.Drawing.Size(724, 972);
+            this.polyhedronPictureBox.Size = new System.Drawing.Size(1306, 701);
             this.polyhedronPictureBox.TabIndex = 0;
             this.polyhedronPictureBox.TabStop = false;
             this.polyhedronPictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.polyhedronPictureBox_MouseClick);
@@ -191,17 +189,18 @@
             // polyhedronSelectionComboBox
             // 
             this.polyhedronSelectionComboBox.FormattingEnabled = true;
-            this.polyhedronSelectionComboBox.Location = new System.Drawing.Point(738, 29);
+            this.polyhedronSelectionComboBox.Location = new System.Drawing.Point(22, 43);
             this.polyhedronSelectionComboBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.polyhedronSelectionComboBox.Name = "polyhedronSelectionComboBox";
             this.polyhedronSelectionComboBox.Size = new System.Drawing.Size(153, 21);
             this.polyhedronSelectionComboBox.TabIndex = 23;
+            this.polyhedronSelectionComboBox.SelectedIndexChanged += new System.EventHandler(this.polyhedronSelectionComboBox_SelectedIndexChanged);
             this.polyhedronSelectionComboBox.SelectionChangeCommitted += new System.EventHandler(this.polyhedronComboBox_SelectionChangeCommitted);
             // 
             // polyhedronSelectionLabel
             // 
             this.polyhedronSelectionLabel.AutoSize = true;
-            this.polyhedronSelectionLabel.Location = new System.Drawing.Point(742, 16);
+            this.polyhedronSelectionLabel.Location = new System.Drawing.Point(34, 25);
             this.polyhedronSelectionLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.polyhedronSelectionLabel.Name = "polyhedronSelectionLabel";
             this.polyhedronSelectionLabel.Size = new System.Drawing.Size(124, 13);
@@ -211,7 +210,7 @@
             // projectionSelectionComboBox
             // 
             this.projectionSelectionComboBox.FormattingEnabled = true;
-            this.projectionSelectionComboBox.Location = new System.Drawing.Point(906, 29);
+            this.projectionSelectionComboBox.Location = new System.Drawing.Point(110, 544);
             this.projectionSelectionComboBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.projectionSelectionComboBox.Name = "projectionSelectionComboBox";
             this.projectionSelectionComboBox.Size = new System.Drawing.Size(148, 21);
@@ -221,7 +220,7 @@
             // projectionSelectionLabel
             // 
             this.projectionSelectionLabel.AutoSize = true;
-            this.projectionSelectionLabel.Location = new System.Drawing.Point(908, 16);
+            this.projectionSelectionLabel.Location = new System.Drawing.Point(137, 528);
             this.projectionSelectionLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.projectionSelectionLabel.Name = "projectionSelectionLabel";
             this.projectionSelectionLabel.Size = new System.Drawing.Size(91, 13);
@@ -261,18 +260,18 @@
             this.rotationAroundEdgeGroupBox.Controls.Add(this.rotationAroundEdgeBeginPointLabel);
             this.rotationAroundEdgeGroupBox.Controls.Add(this.rotationAroundEdgeAngleTextBox);
             this.rotationAroundEdgeGroupBox.Controls.Add(this.rotationAroundEdgeAngleLabel);
-            this.rotationAroundEdgeGroupBox.Location = new System.Drawing.Point(734, 447);
+            this.rotationAroundEdgeGroupBox.Location = new System.Drawing.Point(23, 387);
             this.rotationAroundEdgeGroupBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.rotationAroundEdgeGroupBox.Name = "rotationAroundEdgeGroupBox";
             this.rotationAroundEdgeGroupBox.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.rotationAroundEdgeGroupBox.Size = new System.Drawing.Size(314, 84);
+            this.rotationAroundEdgeGroupBox.Size = new System.Drawing.Size(314, 97);
             this.rotationAroundEdgeGroupBox.TabIndex = 29;
             this.rotationAroundEdgeGroupBox.TabStop = false;
             this.rotationAroundEdgeGroupBox.Text = "Поворот вокруг произвольной прямой на заданный угол";
             // 
             // rotationAroundEdgeEndPointZTextBox
             // 
-            this.rotationAroundEdgeEndPointZTextBox.Location = new System.Drawing.Point(142, 61);
+            this.rotationAroundEdgeEndPointZTextBox.Location = new System.Drawing.Point(146, 70);
             this.rotationAroundEdgeEndPointZTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.rotationAroundEdgeEndPointZTextBox.Name = "rotationAroundEdgeEndPointZTextBox";
             this.rotationAroundEdgeEndPointZTextBox.Size = new System.Drawing.Size(67, 20);
@@ -280,7 +279,7 @@
             // 
             // rotationAroundEdgeEndPointYTextBox
             // 
-            this.rotationAroundEdgeEndPointYTextBox.Location = new System.Drawing.Point(74, 61);
+            this.rotationAroundEdgeEndPointYTextBox.Location = new System.Drawing.Point(75, 70);
             this.rotationAroundEdgeEndPointYTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.rotationAroundEdgeEndPointYTextBox.Name = "rotationAroundEdgeEndPointYTextBox";
             this.rotationAroundEdgeEndPointYTextBox.Size = new System.Drawing.Size(67, 20);
@@ -288,7 +287,7 @@
             // 
             // rotationAroundEdgeBeginPointZTextBox
             // 
-            this.rotationAroundEdgeBeginPointZTextBox.Location = new System.Drawing.Point(140, 31);
+            this.rotationAroundEdgeBeginPointZTextBox.Location = new System.Drawing.Point(146, 31);
             this.rotationAroundEdgeBeginPointZTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.rotationAroundEdgeBeginPointZTextBox.Name = "rotationAroundEdgeBeginPointZTextBox";
             this.rotationAroundEdgeBeginPointZTextBox.Size = new System.Drawing.Size(67, 20);
@@ -296,7 +295,7 @@
             // 
             // rotationAroundEdgeBeginPointYTextBox
             // 
-            this.rotationAroundEdgeBeginPointYTextBox.Location = new System.Drawing.Point(72, 31);
+            this.rotationAroundEdgeBeginPointYTextBox.Location = new System.Drawing.Point(75, 31);
             this.rotationAroundEdgeBeginPointYTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.rotationAroundEdgeBeginPointYTextBox.Name = "rotationAroundEdgeBeginPointYTextBox";
             this.rotationAroundEdgeBeginPointYTextBox.Size = new System.Drawing.Size(67, 20);
@@ -304,18 +303,19 @@
             // 
             // rotationAroundEdgeAngleButton
             // 
-            this.rotationAroundEdgeAngleButton.Location = new System.Drawing.Point(214, 25);
+            this.rotationAroundEdgeAngleButton.BackColor = System.Drawing.Color.Lime;
+            this.rotationAroundEdgeAngleButton.Location = new System.Drawing.Point(216, 32);
             this.rotationAroundEdgeAngleButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.rotationAroundEdgeAngleButton.Name = "rotationAroundEdgeAngleButton";
-            this.rotationAroundEdgeAngleButton.Size = new System.Drawing.Size(92, 20);
+            this.rotationAroundEdgeAngleButton.Size = new System.Drawing.Size(92, 19);
             this.rotationAroundEdgeAngleButton.TabIndex = 11;
             this.rotationAroundEdgeAngleButton.Text = "Повернуть";
-            this.rotationAroundEdgeAngleButton.UseVisualStyleBackColor = true;
+            this.rotationAroundEdgeAngleButton.UseVisualStyleBackColor = false;
             this.rotationAroundEdgeAngleButton.Click += new System.EventHandler(this.rotationAroundEdgeAngleButton_Click);
             // 
             // rotationAroundEdgeEndPointXTextBox
             // 
-            this.rotationAroundEdgeEndPointXTextBox.Location = new System.Drawing.Point(4, 61);
+            this.rotationAroundEdgeEndPointXTextBox.Location = new System.Drawing.Point(4, 70);
             this.rotationAroundEdgeEndPointXTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.rotationAroundEdgeEndPointXTextBox.Name = "rotationAroundEdgeEndPointXTextBox";
             this.rotationAroundEdgeEndPointXTextBox.Size = new System.Drawing.Size(67, 20);
@@ -333,7 +333,7 @@
             // rotationAroundEdgeEndPointLabel
             // 
             this.rotationAroundEdgeEndPointLabel.AutoSize = true;
-            this.rotationAroundEdgeEndPointLabel.Location = new System.Drawing.Point(6, 47);
+            this.rotationAroundEdgeEndPointLabel.Location = new System.Drawing.Point(1, 57);
             this.rotationAroundEdgeEndPointLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.rotationAroundEdgeEndPointLabel.Name = "rotationAroundEdgeEndPointLabel";
             this.rotationAroundEdgeEndPointLabel.Size = new System.Drawing.Size(86, 13);
@@ -343,7 +343,7 @@
             // rotationAroundEdgeBeginPointLabel
             // 
             this.rotationAroundEdgeBeginPointLabel.AutoSize = true;
-            this.rotationAroundEdgeBeginPointLabel.Location = new System.Drawing.Point(4, 14);
+            this.rotationAroundEdgeBeginPointLabel.Location = new System.Drawing.Point(1, 16);
             this.rotationAroundEdgeBeginPointLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.rotationAroundEdgeBeginPointLabel.Name = "rotationAroundEdgeBeginPointLabel";
             this.rotationAroundEdgeBeginPointLabel.Size = new System.Drawing.Size(93, 13);
@@ -352,7 +352,7 @@
             // 
             // rotationAroundEdgeAngleTextBox
             // 
-            this.rotationAroundEdgeAngleTextBox.Location = new System.Drawing.Point(214, 61);
+            this.rotationAroundEdgeAngleTextBox.Location = new System.Drawing.Point(216, 70);
             this.rotationAroundEdgeAngleTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.rotationAroundEdgeAngleTextBox.Name = "rotationAroundEdgeAngleTextBox";
             this.rotationAroundEdgeAngleTextBox.Size = new System.Drawing.Size(94, 20);
@@ -361,7 +361,7 @@
             // rotationAroundEdgeAngleLabel
             // 
             this.rotationAroundEdgeAngleLabel.AutoSize = true;
-            this.rotationAroundEdgeAngleLabel.Location = new System.Drawing.Point(214, 47);
+            this.rotationAroundEdgeAngleLabel.Location = new System.Drawing.Point(215, 54);
             this.rotationAroundEdgeAngleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.rotationAroundEdgeAngleLabel.Name = "rotationAroundEdgeAngleLabel";
             this.rotationAroundEdgeAngleLabel.Size = new System.Drawing.Size(95, 13);
@@ -374,7 +374,7 @@
             this.affineTransformationsGroupBox.Controls.Add(this.rotationGroupBox);
             this.affineTransformationsGroupBox.Controls.Add(this.translationGroupBox);
             this.affineTransformationsGroupBox.Controls.Add(this.translationLabel);
-            this.affineTransformationsGroupBox.Location = new System.Drawing.Point(734, 158);
+            this.affineTransformationsGroupBox.Location = new System.Drawing.Point(22, 84);
             this.affineTransformationsGroupBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.affineTransformationsGroupBox.Name = "affineTransformationsGroupBox";
             this.affineTransformationsGroupBox.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -391,9 +391,6 @@
             this.scalingGroupBox.Controls.Add(this.scalingZTextBox);
             this.scalingGroupBox.Controls.Add(this.scalingYTextBox);
             this.scalingGroupBox.Controls.Add(this.scalingXTextBox);
-            this.scalingGroupBox.Controls.Add(this.scalingZLabel);
-            this.scalingGroupBox.Controls.Add(this.scalingYLabel);
-            this.scalingGroupBox.Controls.Add(this.scalingXLabel);
             this.scalingGroupBox.Location = new System.Drawing.Point(4, 139);
             this.scalingGroupBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.scalingGroupBox.Name = "scalingGroupBox";
@@ -405,68 +402,42 @@
             // 
             // scalingButton
             // 
-            this.scalingButton.Location = new System.Drawing.Point(206, 23);
+            this.scalingButton.BackColor = System.Drawing.Color.Lime;
+            this.scalingButton.Location = new System.Drawing.Point(215, 19);
             this.scalingButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.scalingButton.Name = "scalingButton";
-            this.scalingButton.Size = new System.Drawing.Size(98, 20);
+            this.scalingButton.Size = new System.Drawing.Size(91, 20);
             this.scalingButton.TabIndex = 7;
-            this.scalingButton.Text = "Масштабировать";
-            this.scalingButton.UseVisualStyleBackColor = true;
+            this.scalingButton.Text = "Изменить";
+            this.scalingButton.UseVisualStyleBackColor = false;
             this.scalingButton.Click += new System.EventHandler(this.scalingButton_Click);
             // 
             // scalingZTextBox
             // 
-            this.scalingZTextBox.Location = new System.Drawing.Point(140, 29);
+            this.scalingZTextBox.Location = new System.Drawing.Point(145, 19);
             this.scalingZTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.scalingZTextBox.Name = "scalingZTextBox";
             this.scalingZTextBox.Size = new System.Drawing.Size(64, 20);
             this.scalingZTextBox.TabIndex = 5;
+            this.scalingZTextBox.Text = "Z";
             // 
             // scalingYTextBox
             // 
-            this.scalingYTextBox.Location = new System.Drawing.Point(70, 29);
+            this.scalingYTextBox.Location = new System.Drawing.Point(75, 19);
             this.scalingYTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.scalingYTextBox.Name = "scalingYTextBox";
             this.scalingYTextBox.Size = new System.Drawing.Size(67, 20);
             this.scalingYTextBox.TabIndex = 4;
+            this.scalingYTextBox.Text = "Y";
             // 
             // scalingXTextBox
             // 
-            this.scalingXTextBox.Location = new System.Drawing.Point(2, 29);
+            this.scalingXTextBox.Location = new System.Drawing.Point(4, 19);
             this.scalingXTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.scalingXTextBox.Name = "scalingXTextBox";
             this.scalingXTextBox.Size = new System.Drawing.Size(67, 20);
             this.scalingXTextBox.TabIndex = 3;
-            // 
-            // scalingZLabel
-            // 
-            this.scalingZLabel.AutoSize = true;
-            this.scalingZLabel.Location = new System.Drawing.Point(144, 14);
-            this.scalingZLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.scalingZLabel.Name = "scalingZLabel";
-            this.scalingZLabel.Size = new System.Drawing.Size(75, 13);
-            this.scalingZLabel.TabIndex = 2;
-            this.scalingZLabel.Text = "Множитель Z";
-            // 
-            // scalingYLabel
-            // 
-            this.scalingYLabel.AutoSize = true;
-            this.scalingYLabel.Location = new System.Drawing.Point(74, 14);
-            this.scalingYLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.scalingYLabel.Name = "scalingYLabel";
-            this.scalingYLabel.Size = new System.Drawing.Size(75, 13);
-            this.scalingYLabel.TabIndex = 1;
-            this.scalingYLabel.Text = "Множитель Y";
-            // 
-            // scalingXLabel
-            // 
-            this.scalingXLabel.AutoSize = true;
-            this.scalingXLabel.Location = new System.Drawing.Point(3, 14);
-            this.scalingXLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.scalingXLabel.Name = "scalingXLabel";
-            this.scalingXLabel.Size = new System.Drawing.Size(75, 13);
-            this.scalingXLabel.TabIndex = 0;
-            this.scalingXLabel.Text = "Множитель X";
+            this.scalingXTextBox.Text = "X";
             // 
             // rotationGroupBox
             // 
@@ -476,9 +447,6 @@
             this.rotationGroupBox.Controls.Add(this.rotationZTextBox);
             this.rotationGroupBox.Controls.Add(this.rotationYTextBox);
             this.rotationGroupBox.Controls.Add(this.rotationXTextBox);
-            this.rotationGroupBox.Controls.Add(this.rotaionDegreesZLabel);
-            this.rotationGroupBox.Controls.Add(this.rotaionDegreesYLabel);
-            this.rotationGroupBox.Controls.Add(this.rotaionDegreesXLabel);
             this.rotationGroupBox.Location = new System.Drawing.Point(3, 84);
             this.rotationGroupBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.rotationGroupBox.Name = "rotationGroupBox";
@@ -490,76 +458,47 @@
             // 
             // rotateButton
             // 
-            this.rotateButton.Location = new System.Drawing.Point(207, 23);
+            this.rotateButton.BackColor = System.Drawing.Color.Lime;
+            this.rotateButton.Location = new System.Drawing.Point(216, 19);
             this.rotateButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.rotateButton.Name = "rotateButton";
-            this.rotateButton.Size = new System.Drawing.Size(98, 20);
+            this.rotateButton.Size = new System.Drawing.Size(92, 20);
             this.rotateButton.TabIndex = 6;
             this.rotateButton.Text = "Повернуть";
-            this.rotateButton.UseVisualStyleBackColor = true;
+            this.rotateButton.UseVisualStyleBackColor = false;
             this.rotateButton.Click += new System.EventHandler(this.rotateButton_Click);
             // 
             // rotationZTextBox
             // 
-            this.rotationZTextBox.Location = new System.Drawing.Point(138, 29);
+            this.rotationZTextBox.Location = new System.Drawing.Point(148, 19);
             this.rotationZTextBox.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.rotationZTextBox.Name = "rotationZTextBox";
             this.rotationZTextBox.Size = new System.Drawing.Size(65, 20);
             this.rotationZTextBox.TabIndex = 5;
+            this.rotationZTextBox.Text = "Z";
             // 
             // rotationYTextBox
             // 
-            this.rotationYTextBox.Location = new System.Drawing.Point(70, 29);
+            this.rotationYTextBox.Location = new System.Drawing.Point(76, 19);
             this.rotationYTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.rotationYTextBox.Name = "rotationYTextBox";
             this.rotationYTextBox.Size = new System.Drawing.Size(67, 20);
             this.rotationYTextBox.TabIndex = 4;
+            this.rotationYTextBox.Text = "Y";
             // 
             // rotationXTextBox
             // 
-            this.rotationXTextBox.Location = new System.Drawing.Point(2, 29);
+            this.rotationXTextBox.Location = new System.Drawing.Point(5, 19);
             this.rotationXTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.rotationXTextBox.Name = "rotationXTextBox";
             this.rotationXTextBox.Size = new System.Drawing.Size(67, 20);
             this.rotationXTextBox.TabIndex = 3;
-            // 
-            // rotaionDegreesZLabel
-            // 
-            this.rotaionDegreesZLabel.AutoSize = true;
-            this.rotaionDegreesZLabel.Location = new System.Drawing.Point(143, 14);
-            this.rotaionDegreesZLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.rotaionDegreesZLabel.Name = "rotaionDegreesZLabel";
-            this.rotaionDegreesZLabel.Size = new System.Drawing.Size(42, 13);
-            this.rotaionDegreesZLabel.TabIndex = 2;
-            this.rotaionDegreesZLabel.Text = "Угол Z";
-            // 
-            // rotaionDegreesYLabel
-            // 
-            this.rotaionDegreesYLabel.AutoSize = true;
-            this.rotaionDegreesYLabel.Location = new System.Drawing.Point(74, 14);
-            this.rotaionDegreesYLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.rotaionDegreesYLabel.Name = "rotaionDegreesYLabel";
-            this.rotaionDegreesYLabel.Size = new System.Drawing.Size(42, 13);
-            this.rotaionDegreesYLabel.TabIndex = 1;
-            this.rotaionDegreesYLabel.Text = "Угол Y";
-            // 
-            // rotaionDegreesXLabel
-            // 
-            this.rotaionDegreesXLabel.AutoSize = true;
-            this.rotaionDegreesXLabel.Location = new System.Drawing.Point(7, 14);
-            this.rotaionDegreesXLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.rotaionDegreesXLabel.Name = "rotaionDegreesXLabel";
-            this.rotaionDegreesXLabel.Size = new System.Drawing.Size(42, 13);
-            this.rotaionDegreesXLabel.TabIndex = 0;
-            this.rotaionDegreesXLabel.Text = "Угол X";
+            this.rotationXTextBox.Text = "X";
             // 
             // translationGroupBox
             // 
             this.translationGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.translationGroupBox.Controls.Add(this.translationZLabel);
-            this.translationGroupBox.Controls.Add(this.translationYLabel);
-            this.translationGroupBox.Controls.Add(this.translationXLabel);
             this.translationGroupBox.Controls.Add(this.translationXTextBox);
             this.translationGroupBox.Controls.Add(this.translateButton);
             this.translationGroupBox.Controls.Add(this.translationYTextBox);
@@ -568,75 +507,49 @@
             this.translationGroupBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.translationGroupBox.Name = "translationGroupBox";
             this.translationGroupBox.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.translationGroupBox.Size = new System.Drawing.Size(312, 62);
+            this.translationGroupBox.Size = new System.Drawing.Size(312, 58);
             this.translationGroupBox.TabIndex = 5;
             this.translationGroupBox.TabStop = false;
             this.translationGroupBox.Text = "Смещение";
             // 
-            // translationZLabel
-            // 
-            this.translationZLabel.AutoSize = true;
-            this.translationZLabel.Location = new System.Drawing.Point(139, 18);
-            this.translationZLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.translationZLabel.Name = "translationZLabel";
-            this.translationZLabel.Size = new System.Drawing.Size(71, 13);
-            this.translationZLabel.TabIndex = 7;
-            this.translationZLabel.Text = "Смещение Z";
-            // 
-            // translationYLabel
-            // 
-            this.translationYLabel.AutoSize = true;
-            this.translationYLabel.Location = new System.Drawing.Point(70, 18);
-            this.translationYLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.translationYLabel.Name = "translationYLabel";
-            this.translationYLabel.Size = new System.Drawing.Size(71, 13);
-            this.translationYLabel.TabIndex = 6;
-            this.translationYLabel.Text = "Смещение Y";
-            // 
-            // translationXLabel
-            // 
-            this.translationXLabel.AutoSize = true;
-            this.translationXLabel.Location = new System.Drawing.Point(3, 18);
-            this.translationXLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.translationXLabel.Name = "translationXLabel";
-            this.translationXLabel.Size = new System.Drawing.Size(71, 13);
-            this.translationXLabel.TabIndex = 5;
-            this.translationXLabel.Text = "Смещение X";
-            // 
             // translationXTextBox
             // 
-            this.translationXTextBox.Location = new System.Drawing.Point(2, 39);
+            this.translationXTextBox.Location = new System.Drawing.Point(4, 23);
             this.translationXTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.translationXTextBox.Name = "translationXTextBox";
             this.translationXTextBox.Size = new System.Drawing.Size(67, 20);
             this.translationXTextBox.TabIndex = 1;
+            this.translationXTextBox.Text = "X";
             // 
             // translateButton
             // 
-            this.translateButton.Location = new System.Drawing.Point(207, 36);
+            this.translateButton.BackColor = System.Drawing.Color.Lime;
+            this.translateButton.Location = new System.Drawing.Point(218, 23);
             this.translateButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.translateButton.Name = "translateButton";
-            this.translateButton.Size = new System.Drawing.Size(98, 20);
+            this.translateButton.Size = new System.Drawing.Size(89, 20);
             this.translateButton.TabIndex = 4;
             this.translateButton.Text = "Сместить";
-            this.translateButton.UseVisualStyleBackColor = true;
+            this.translateButton.UseVisualStyleBackColor = false;
             this.translateButton.Click += new System.EventHandler(this.translateButton_Click);
             // 
             // translationYTextBox
             // 
-            this.translationYTextBox.Location = new System.Drawing.Point(70, 39);
+            this.translationYTextBox.Location = new System.Drawing.Point(75, 23);
             this.translationYTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.translationYTextBox.Name = "translationYTextBox";
             this.translationYTextBox.Size = new System.Drawing.Size(67, 20);
             this.translationYTextBox.TabIndex = 2;
+            this.translationYTextBox.Text = "Y";
             // 
             // translationZTextBox
             // 
-            this.translationZTextBox.Location = new System.Drawing.Point(138, 39);
+            this.translationZTextBox.Location = new System.Drawing.Point(146, 23);
             this.translationZTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.translationZTextBox.Name = "translationZTextBox";
             this.translationZTextBox.Size = new System.Drawing.Size(66, 20);
             this.translationZTextBox.TabIndex = 3;
+            this.translationZTextBox.Text = "Z";
             // 
             // translationLabel
             // 
@@ -652,7 +565,7 @@
             this.reflectionGroupBox.Controls.Add(this.reflectButton);
             this.reflectionGroupBox.Controls.Add(this.reflectionCoordinatePlaneLabel);
             this.reflectionGroupBox.Controls.Add(this.reflectionCoordinatePlaneComboBox);
-            this.reflectionGroupBox.Location = new System.Drawing.Point(734, 358);
+            this.reflectionGroupBox.Location = new System.Drawing.Point(22, 292);
             this.reflectionGroupBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.reflectionGroupBox.Name = "reflectionGroupBox";
             this.reflectionGroupBox.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -663,20 +576,21 @@
             // 
             // reflectButton
             // 
+            this.reflectButton.BackColor = System.Drawing.Color.Lime;
             this.reflectButton.Location = new System.Drawing.Point(8, 55);
             this.reflectButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.reflectButton.Name = "reflectButton";
-            this.reflectButton.Size = new System.Drawing.Size(86, 20);
+            this.reflectButton.Size = new System.Drawing.Size(86, 23);
             this.reflectButton.TabIndex = 29;
             this.reflectButton.Text = "Отразить";
-            this.reflectButton.UseVisualStyleBackColor = true;
+            this.reflectButton.UseVisualStyleBackColor = false;
             this.reflectButton.Click += new System.EventHandler(this.reflectButton_Click);
             // 
             // centeredScalingGroupBox
             // 
             this.centeredScalingGroupBox.Controls.Add(this.decreaseScaleButton);
             this.centeredScalingGroupBox.Controls.Add(this.increaseScaleButton);
-            this.centeredScalingGroupBox.Location = new System.Drawing.Point(846, 404);
+            this.centeredScalingGroupBox.Location = new System.Drawing.Point(137, 336);
             this.centeredScalingGroupBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.centeredScalingGroupBox.Name = "centeredScalingGroupBox";
             this.centeredScalingGroupBox.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -687,31 +601,33 @@
             // 
             // decreaseScaleButton
             // 
+            this.decreaseScaleButton.BackColor = System.Drawing.Color.Red;
             this.decreaseScaleButton.Location = new System.Drawing.Point(100, 16);
             this.decreaseScaleButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.decreaseScaleButton.Name = "decreaseScaleButton";
             this.decreaseScaleButton.Size = new System.Drawing.Size(96, 21);
             this.decreaseScaleButton.TabIndex = 31;
             this.decreaseScaleButton.Text = "-";
-            this.decreaseScaleButton.UseVisualStyleBackColor = true;
+            this.decreaseScaleButton.UseVisualStyleBackColor = false;
             this.decreaseScaleButton.Click += new System.EventHandler(this.MashtabMinus);
             // 
             // increaseScaleButton
             // 
+            this.increaseScaleButton.BackColor = System.Drawing.Color.Lime;
             this.increaseScaleButton.Location = new System.Drawing.Point(3, 16);
             this.increaseScaleButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.increaseScaleButton.Name = "increaseScaleButton";
             this.increaseScaleButton.Size = new System.Drawing.Size(90, 21);
             this.increaseScaleButton.TabIndex = 30;
             this.increaseScaleButton.Text = "+";
-            this.increaseScaleButton.UseVisualStyleBackColor = true;
+            this.increaseScaleButton.UseVisualStyleBackColor = false;
             this.increaseScaleButton.Click += new System.EventHandler(this.MashtabPlus);
             // 
             // rotatingGroupBox
             // 
             this.rotatingGroupBox.Controls.Add(this.rotationCoordinatePlaneLabel);
             this.rotatingGroupBox.Controls.Add(this.rotationCoordinatePlaneComboBox);
-            this.rotatingGroupBox.Location = new System.Drawing.Point(846, 359);
+            this.rotatingGroupBox.Location = new System.Drawing.Point(136, 292);
             this.rotatingGroupBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.rotatingGroupBox.Name = "rotatingGroupBox";
             this.rotatingGroupBox.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -831,12 +747,13 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(20, 148);
+            this.button1.BackColor = System.Drawing.Color.Lime;
+            this.button1.Location = new System.Drawing.Point(65, 136);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 45;
             this.button1.Text = "Построить";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.building_function);
             // 
             // FtextBox
@@ -861,7 +778,7 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.y0TextBox);
             this.groupBox1.Controls.Add(this.x0TextBox);
-            this.groupBox1.Location = new System.Drawing.Point(1056, 461);
+            this.groupBox1.Location = new System.Drawing.Point(74, 249);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(200, 173);
             this.groupBox1.TabIndex = 47;
@@ -872,7 +789,7 @@
             // 
             this.modelFromFileFroupBox.Controls.Add(this.saveModelIntoFileButton);
             this.modelFromFileFroupBox.Controls.Add(this.loadModelronFromFileButton);
-            this.modelFromFileFroupBox.Location = new System.Drawing.Point(1056, 642);
+            this.modelFromFileFroupBox.Location = new System.Drawing.Point(74, 25);
             this.modelFromFileFroupBox.Margin = new System.Windows.Forms.Padding(2);
             this.modelFromFileFroupBox.Name = "modelFromFileFroupBox";
             this.modelFromFileFroupBox.Padding = new System.Windows.Forms.Padding(2);
@@ -883,24 +800,26 @@
             // 
             // saveModelIntoFileButton
             // 
+            this.saveModelIntoFileButton.BackColor = System.Drawing.Color.Lime;
             this.saveModelIntoFileButton.Location = new System.Drawing.Point(110, 16);
             this.saveModelIntoFileButton.Margin = new System.Windows.Forms.Padding(2);
             this.saveModelIntoFileButton.Name = "saveModelIntoFileButton";
             this.saveModelIntoFileButton.Size = new System.Drawing.Size(81, 23);
             this.saveModelIntoFileButton.TabIndex = 1;
             this.saveModelIntoFileButton.Text = "Сохранить";
-            this.saveModelIntoFileButton.UseVisualStyleBackColor = true;
+            this.saveModelIntoFileButton.UseVisualStyleBackColor = false;
             this.saveModelIntoFileButton.Click += new System.EventHandler(this.saveModelIntoFileButton_Click);
             // 
             // loadModelronFromFileButton
             // 
+            this.loadModelronFromFileButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.loadModelronFromFileButton.Location = new System.Drawing.Point(11, 16);
             this.loadModelronFromFileButton.Margin = new System.Windows.Forms.Padding(2);
             this.loadModelronFromFileButton.Name = "loadModelronFromFileButton";
             this.loadModelronFromFileButton.Size = new System.Drawing.Size(89, 23);
             this.loadModelronFromFileButton.TabIndex = 0;
             this.loadModelronFromFileButton.Text = "Загрузить";
-            this.loadModelronFromFileButton.UseVisualStyleBackColor = true;
+            this.loadModelronFromFileButton.UseVisualStyleBackColor = false;
             this.loadModelronFromFileButton.Click += new System.EventHandler(this.loadModelronFromFileButton_Click);
             // 
             // groupBox2
@@ -912,7 +831,7 @@
             this.groupBox2.Controls.Add(this.partirionsCountLabel);
             this.groupBox2.Controls.Add(this.buildRotationBodyButton);
             this.groupBox2.Controls.Add(this.partitionsCountTextBox);
-            this.groupBox2.Location = new System.Drawing.Point(852, 534);
+            this.groupBox2.Location = new System.Drawing.Point(74, 84);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -971,13 +890,14 @@
             // 
             // buildRotationBodyButton
             // 
+            this.buildRotationBodyButton.BackColor = System.Drawing.Color.Lime;
             this.buildRotationBodyButton.Location = new System.Drawing.Point(10, 122);
             this.buildRotationBodyButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.buildRotationBodyButton.Name = "buildRotationBodyButton";
             this.buildRotationBodyButton.Size = new System.Drawing.Size(182, 25);
             this.buildRotationBodyButton.TabIndex = 2;
             this.buildRotationBodyButton.Text = "Построить";
-            this.buildRotationBodyButton.UseVisualStyleBackColor = true;
+            this.buildRotationBodyButton.UseVisualStyleBackColor = false;
             this.buildRotationBodyButton.Click += new System.EventHandler(this.buttonDoTask2_Click);
             // 
             // partitionsCountTextBox
@@ -991,7 +911,7 @@
             // ChoiceComboBox
             // 
             this.ChoiceComboBox.FormattingEnabled = true;
-            this.ChoiceComboBox.Location = new System.Drawing.Point(738, 77);
+            this.ChoiceComboBox.Location = new System.Drawing.Point(187, 43);
             this.ChoiceComboBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.ChoiceComboBox.Name = "ChoiceComboBox";
             this.ChoiceComboBox.Size = new System.Drawing.Size(153, 21);
@@ -1001,7 +921,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(742, 64);
+            this.label7.Location = new System.Drawing.Point(203, 25);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(126, 13);
@@ -1011,7 +931,7 @@
             // facetsRemovingComboBox
             // 
             this.facetsRemovingComboBox.FormattingEnabled = true;
-            this.facetsRemovingComboBox.Location = new System.Drawing.Point(3, 16);
+            this.facetsRemovingComboBox.Location = new System.Drawing.Point(4, 13);
             this.facetsRemovingComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.facetsRemovingComboBox.Name = "facetsRemovingComboBox";
             this.facetsRemovingComboBox.Size = new System.Drawing.Size(305, 21);
@@ -1022,7 +942,7 @@
             // facetsRemovingGroupBox
             // 
             this.facetsRemovingGroupBox.Controls.Add(this.facetsRemovingComboBox);
-            this.facetsRemovingGroupBox.Location = new System.Drawing.Point(736, 103);
+            this.facetsRemovingGroupBox.Location = new System.Drawing.Point(25, 23);
             this.facetsRemovingGroupBox.Margin = new System.Windows.Forms.Padding(2);
             this.facetsRemovingGroupBox.Name = "facetsRemovingGroupBox";
             this.facetsRemovingGroupBox.Padding = new System.Windows.Forms.Padding(2);
@@ -1047,7 +967,7 @@
             this.cameraGroupBox.Controls.Add(this.cameraYAngleLabel);
             this.cameraGroupBox.Controls.Add(this.cameraXAngleLabel);
             this.cameraGroupBox.Controls.Add(this.cameraAngleXTextBox);
-            this.cameraGroupBox.Location = new System.Drawing.Point(1058, 9);
+            this.cameraGroupBox.Location = new System.Drawing.Point(78, 70);
             this.cameraGroupBox.Margin = new System.Windows.Forms.Padding(2);
             this.cameraGroupBox.Name = "cameraGroupBox";
             this.cameraGroupBox.Padding = new System.Windows.Forms.Padding(2);
@@ -1058,24 +978,26 @@
             // 
             // translateCameraButton
             // 
+            this.translateCameraButton.BackColor = System.Drawing.Color.Lime;
             this.translateCameraButton.Location = new System.Drawing.Point(15, 140);
             this.translateCameraButton.Margin = new System.Windows.Forms.Padding(2);
             this.translateCameraButton.Name = "translateCameraButton";
-            this.translateCameraButton.Size = new System.Drawing.Size(171, 19);
+            this.translateCameraButton.Size = new System.Drawing.Size(171, 23);
             this.translateCameraButton.TabIndex = 13;
             this.translateCameraButton.Text = "Сместить";
-            this.translateCameraButton.UseVisualStyleBackColor = true;
+            this.translateCameraButton.UseVisualStyleBackColor = false;
             this.translateCameraButton.Click += new System.EventHandler(this.translateCameraButton_Click);
             // 
             // rotateCameraButton
             // 
+            this.rotateCameraButton.BackColor = System.Drawing.Color.Lime;
             this.rotateCameraButton.Location = new System.Drawing.Point(15, 64);
             this.rotateCameraButton.Margin = new System.Windows.Forms.Padding(2);
             this.rotateCameraButton.Name = "rotateCameraButton";
-            this.rotateCameraButton.Size = new System.Drawing.Size(172, 19);
+            this.rotateCameraButton.Size = new System.Drawing.Size(172, 28);
             this.rotateCameraButton.TabIndex = 12;
             this.rotateCameraButton.Text = "Повернуть камеру";
-            this.rotateCameraButton.UseVisualStyleBackColor = true;
+            this.rotateCameraButton.UseVisualStyleBackColor = false;
             this.rotateCameraButton.Click += new System.EventHandler(this.rotateCameraButton_Click);
             // 
             // cameraZtranslationTextBox
@@ -1207,7 +1129,7 @@
             this.groupBox3.Controls.Add(this.FUNbuttonZ);
             this.groupBox3.Controls.Add(this.FUNbuttonY);
             this.groupBox3.Controls.Add(this.FUNbuttonX);
-            this.groupBox3.Location = new System.Drawing.Point(1058, 176);
+            this.groupBox3.Location = new System.Drawing.Point(1106, 116);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
@@ -1215,6 +1137,7 @@
             this.groupBox3.TabIndex = 57;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Плавающий горизонт";
+            this.groupBox3.Visible = false;
             // 
             // label14
             // 
@@ -1378,7 +1301,7 @@
             // 
             this.texturingGroupBox.Controls.Add(this.buttonTexture);
             this.texturingGroupBox.Controls.Add(this.loadTextureButton);
-            this.texturingGroupBox.Location = new System.Drawing.Point(1056, 373);
+            this.texturingGroupBox.Location = new System.Drawing.Point(1111, 326);
             this.texturingGroupBox.Margin = new System.Windows.Forms.Padding(2);
             this.texturingGroupBox.Name = "texturingGroupBox";
             this.texturingGroupBox.Padding = new System.Windows.Forms.Padding(2);
@@ -1386,6 +1309,7 @@
             this.texturingGroupBox.TabIndex = 58;
             this.texturingGroupBox.TabStop = false;
             this.texturingGroupBox.Text = "Текстурирование";
+            this.texturingGroupBox.Visible = false;
             // 
             // buttonTexture
             // 
@@ -1418,7 +1342,7 @@
             this.lightViewPointGroupBox.Controls.Add(this.lightViewPointZTextBox);
             this.lightViewPointGroupBox.Controls.Add(this.lightViewPointYTextBox);
             this.lightViewPointGroupBox.Controls.Add(this.lightViewPointXTextBox);
-            this.lightViewPointGroupBox.Location = new System.Drawing.Point(734, 536);
+            this.lightViewPointGroupBox.Location = new System.Drawing.Point(1132, 432);
             this.lightViewPointGroupBox.Margin = new System.Windows.Forms.Padding(2);
             this.lightViewPointGroupBox.Name = "lightViewPointGroupBox";
             this.lightViewPointGroupBox.Padding = new System.Windows.Forms.Padding(2);
@@ -1426,6 +1350,7 @@
             this.lightViewPointGroupBox.TabIndex = 59;
             this.lightViewPointGroupBox.TabStop = false;
             this.lightViewPointGroupBox.Text = "Точка света";
+            this.lightViewPointGroupBox.Visible = false;
             // 
             // lightViewPointButton
             // 
@@ -1492,32 +1417,73 @@
             this.lightViewPointXTextBox.Size = new System.Drawing.Size(52, 20);
             this.lightViewPointXTextBox.TabIndex = 0;
             // 
+            // groupBox4
+            // 
+            this.groupBox4.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.groupBox4.Controls.Add(this.facetsRemovingGroupBox);
+            this.groupBox4.Controls.Add(this.cameraGroupBox);
+            this.groupBox4.Location = new System.Drawing.Point(390, 447);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(361, 238);
+            this.groupBox4.TabIndex = 60;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Лабораторная 3";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.groupBox5.Controls.Add(this.modelFromFileFroupBox);
+            this.groupBox5.Controls.Add(this.groupBox2);
+            this.groupBox5.Controls.Add(this.groupBox1);
+            this.groupBox5.Location = new System.Drawing.Point(390, 3);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(361, 438);
+            this.groupBox5.TabIndex = 61;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Лабораторная 2";
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.groupBox6.Controls.Add(this.affineTransformationsGroupBox);
+            this.groupBox6.Controls.Add(this.reflectionGroupBox);
+            this.groupBox6.Controls.Add(this.rotatingGroupBox);
+            this.groupBox6.Controls.Add(this.polyhedronSelectionComboBox);
+            this.groupBox6.Controls.Add(this.centeredScalingGroupBox);
+            this.groupBox6.Controls.Add(this.rotationAroundEdgeGroupBox);
+            this.groupBox6.Controls.Add(this.ChoiceComboBox);
+            this.groupBox6.Controls.Add(this.label7);
+            this.groupBox6.Controls.Add(this.projectionSelectionLabel);
+            this.groupBox6.Controls.Add(this.projectionSelectionComboBox);
+            this.groupBox6.Controls.Add(this.polyhedronSelectionLabel);
+            this.groupBox6.Location = new System.Drawing.Point(12, 3);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(365, 683);
+            this.groupBox6.TabIndex = 62;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Лабораторная 1";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.groupBox6);
+            this.panel1.Controls.Add(this.groupBox4);
+            this.panel1.Controls.Add(this.groupBox5);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(541, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(765, 701);
+            this.panel1.TabIndex = 63;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1299, 829);
+            this.ClientSize = new System.Drawing.Size(1306, 701);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.lightViewPointGroupBox);
             this.Controls.Add(this.texturingGroupBox);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.cameraGroupBox);
-            this.Controls.Add(this.facetsRemovingGroupBox);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.ChoiceComboBox);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.modelFromFileFroupBox);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.rotatingGroupBox);
-            this.Controls.Add(this.centeredScalingGroupBox);
-            this.Controls.Add(this.reflectionGroupBox);
-            this.Controls.Add(this.affineTransformationsGroupBox);
-            this.Controls.Add(this.rotationAroundEdgeGroupBox);
-            this.Controls.Add(this.projectionSelectionLabel);
-            this.Controls.Add(this.projectionSelectionComboBox);
-            this.Controls.Add(this.polyhedronSelectionLabel);
-            this.Controls.Add(this.polyhedronSelectionComboBox);
             this.Controls.Add(this.polyhedronPictureBox);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -1553,8 +1519,12 @@
             this.texturingGroupBox.ResumeLayout(false);
             this.lightViewPointGroupBox.ResumeLayout(false);
             this.lightViewPointGroupBox.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -1582,9 +1552,6 @@
         private System.Windows.Forms.GroupBox affineTransformationsGroupBox;
         private System.Windows.Forms.Label translationLabel;
         private System.Windows.Forms.GroupBox translationGroupBox;
-        private System.Windows.Forms.Label translationZLabel;
-        private System.Windows.Forms.Label translationYLabel;
-        private System.Windows.Forms.Label translationXLabel;
         private System.Windows.Forms.TextBox translationXTextBox;
         private System.Windows.Forms.Button translateButton;
         private System.Windows.Forms.TextBox translationYTextBox;
@@ -1593,17 +1560,11 @@
         private System.Windows.Forms.Button rotateButton;
         private System.Windows.Forms.TextBox rotationYTextBox;
         private System.Windows.Forms.TextBox rotationXTextBox;
-        private System.Windows.Forms.Label rotaionDegreesZLabel;
-        private System.Windows.Forms.Label rotaionDegreesYLabel;
-        private System.Windows.Forms.Label rotaionDegreesXLabel;
         private System.Windows.Forms.GroupBox scalingGroupBox;
         private System.Windows.Forms.Button scalingButton;
         private System.Windows.Forms.TextBox scalingZTextBox;
         private System.Windows.Forms.TextBox scalingYTextBox;
         private System.Windows.Forms.TextBox scalingXTextBox;
-        private System.Windows.Forms.Label scalingZLabel;
-        private System.Windows.Forms.Label scalingYLabel;
-        private System.Windows.Forms.Label scalingXLabel;
         private System.Windows.Forms.GroupBox reflectionGroupBox;
         private System.Windows.Forms.Button reflectButton;
         private System.Windows.Forms.GroupBox centeredScalingGroupBox;
@@ -1689,6 +1650,10 @@
         private System.Windows.Forms.TextBox lightViewPointYTextBox;
         private System.Windows.Forms.TextBox lightViewPointXTextBox;
         private System.Windows.Forms.Button buttonTexture;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

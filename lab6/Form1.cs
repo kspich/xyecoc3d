@@ -1184,5 +1184,10 @@ namespace lab6
             LightViewPoint.Z = z;
             Project();
         }
+
+        private void polyhedronSelectionComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
