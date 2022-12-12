@@ -8,7 +8,7 @@ namespace lab6
 {
     public enum FacetRemovingType
     {
-        None, ZBuffer, ZBufferWithTexturing, BackfaceCulling
+        None, ZBuffer, BackfaceCulling
     }
 
     public static class FacetRemovingMethods
@@ -20,9 +20,7 @@ namespace lab6
                 case FacetRemovingType.None:
                     return "Без отсечения (рисование ребер)";
                 case FacetRemovingType.ZBuffer:
-                    return "Z-буфер";
-                case FacetRemovingType.ZBufferWithTexturing:
-                    return "Z-буфер с текстурированием";
+                    return "Z-буфер";              
                 case FacetRemovingType.BackfaceCulling:
                     return "Отчесение по нормалям поверхностей";
                 default:

@@ -38,9 +38,7 @@ namespace lab6
 
         public Polyhedron Project(Polyhedron polyhedron, Projection projectionType)
         {
-            var copyPolyhedron = polyhedron.Copy();
-            //copyPolyhedron.Translate(-Position.X, -Position.Y, -Position.Z);
-            //copyPolyhedron.Rotate
+            var copyPolyhedron = polyhedron.Copy();          
             return copyPolyhedron.ComputeProjection(projectionType);
         }
 

@@ -23,11 +23,7 @@ namespace lab6
                 case PolyhedronType.Geksahedron:
                     return "Гексаэдр";
                 case PolyhedronType.Oktahedron:
-                    return "Октаэдр";
-               // case PolyhedronType.Ikosahedron:
-                  //  return "Икосаэдр";
-               // case PolyhedronType.Dodahedron:
-                 //   return "Додекаэдр";
+                    return "Октаэдр";             
                 default:
                     throw new ArgumentException("Unknown polyhedron type");
             }
@@ -42,13 +38,7 @@ namespace lab6
                 case PolyhedronType.Geksahedron:
                     return Regular.Geksahedron();
                 case PolyhedronType.Oktahedron:
-                    return Regular.Oktahedron();
-                /*
-                case PolyhedronType.Ikosahedron:
-                    return Regular.Ikosahedron();
-                case PolyhedronType.Dodahedron:
-                    return Regular.Dodahedron();
-                */
+                    return Regular.Oktahedron();               
                 default:
                     throw new ArgumentException("Unknown polyhedron type");
             }

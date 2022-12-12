@@ -46,10 +46,6 @@ namespace lab6
             Edges.Add(edge);
         }
 
-        public void LoadTexture(string path)
-        {
-            //var texture = Bitmap.FromFile(path);
-            //Texture = new List<List<Point>>();
-        }
+        
     }
 }

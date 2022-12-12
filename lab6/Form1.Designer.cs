@@ -116,37 +116,6 @@
             this.cameraYAngleLabel = new System.Windows.Forms.Label();
             this.cameraXAngleLabel = new System.Windows.Forms.Label();
             this.cameraAngleXTextBox = new System.Windows.Forms.TextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.z1TBox = new System.Windows.Forms.TextBox();
-            this.z0TBox = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.splittingTBox = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.y1TBox = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.x1TBox = new System.Windows.Forms.TextBox();
-            this.y0TBox = new System.Windows.Forms.TextBox();
-            this.x0TBox = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.FzeroBox = new System.Windows.Forms.TextBox();
-            this.FUNbuttonZ = new System.Windows.Forms.Button();
-            this.FUNbuttonY = new System.Windows.Forms.Button();
-            this.FUNbuttonX = new System.Windows.Forms.Button();
-            this.texturingGroupBox = new System.Windows.Forms.GroupBox();
-            this.buttonTexture = new System.Windows.Forms.Button();
-            this.loadTextureButton = new System.Windows.Forms.Button();
-            this.lightViewPointGroupBox = new System.Windows.Forms.GroupBox();
-            this.lightViewPointButton = new System.Windows.Forms.Button();
-            this.lightViewZLabel = new System.Windows.Forms.Label();
-            this.lightVieYLabel = new System.Windows.Forms.Label();
-            this.lightViewXLabel = new System.Windows.Forms.Label();
-            this.lightViewPointZTextBox = new System.Windows.Forms.TextBox();
-            this.lightViewPointYTextBox = new System.Windows.Forms.TextBox();
-            this.lightViewPointXTextBox = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -165,9 +134,6 @@
             this.groupBox2.SuspendLayout();
             this.facetsRemovingGroupBox.SuspendLayout();
             this.cameraGroupBox.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.texturingGroupBox.SuspendLayout();
-            this.lightViewPointGroupBox.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -1108,315 +1074,6 @@
             this.cameraAngleXTextBox.Size = new System.Drawing.Size(52, 20);
             this.cameraAngleXTextBox.TabIndex = 0;
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.label14);
-            this.groupBox3.Controls.Add(this.label15);
-            this.groupBox3.Controls.Add(this.z1TBox);
-            this.groupBox3.Controls.Add(this.z0TBox);
-            this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.splittingTBox);
-            this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.y1TBox);
-            this.groupBox3.Controls.Add(this.label13);
-            this.groupBox3.Controls.Add(this.x1TBox);
-            this.groupBox3.Controls.Add(this.y0TBox);
-            this.groupBox3.Controls.Add(this.x0TBox);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.FzeroBox);
-            this.groupBox3.Controls.Add(this.FUNbuttonZ);
-            this.groupBox3.Controls.Add(this.FUNbuttonY);
-            this.groupBox3.Controls.Add(this.FUNbuttonX);
-            this.groupBox3.Location = new System.Drawing.Point(1106, 116);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox3.Size = new System.Drawing.Size(182, 193);
-            this.groupBox3.TabIndex = 57;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Плавающий горизонт";
-            this.groupBox3.Visible = false;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(102, 68);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(19, 13);
-            this.label14.TabIndex = 66;
-            this.label14.Text = "до";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(11, 68);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(28, 13);
-            this.label15.TabIndex = 67;
-            this.label15.Text = "Z от";
-            // 
-            // z1TBox
-            // 
-            this.z1TBox.Location = new System.Drawing.Point(127, 68);
-            this.z1TBox.Name = "z1TBox";
-            this.z1TBox.Size = new System.Drawing.Size(51, 20);
-            this.z1TBox.TabIndex = 69;
-            // 
-            // z0TBox
-            // 
-            this.z0TBox.Location = new System.Drawing.Point(45, 68);
-            this.z0TBox.Name = "z0TBox";
-            this.z0TBox.Size = new System.Drawing.Size(51, 20);
-            this.z0TBox.TabIndex = 68;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(11, 21);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(28, 13);
-            this.label9.TabIndex = 57;
-            this.label9.Text = "X от";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(102, 21);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(19, 13);
-            this.label10.TabIndex = 58;
-            this.label10.Text = "до";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(102, 45);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(19, 13);
-            this.label11.TabIndex = 59;
-            this.label11.Text = "до";
-            // 
-            // splittingTBox
-            // 
-            this.splittingTBox.Location = new System.Drawing.Point(71, 90);
-            this.splittingTBox.Name = "splittingTBox";
-            this.splittingTBox.Size = new System.Drawing.Size(51, 20);
-            this.splittingTBox.TabIndex = 65;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(11, 45);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(28, 13);
-            this.label12.TabIndex = 60;
-            this.label12.Text = "Y от";
-            // 
-            // y1TBox
-            // 
-            this.y1TBox.Location = new System.Drawing.Point(127, 45);
-            this.y1TBox.Name = "y1TBox";
-            this.y1TBox.Size = new System.Drawing.Size(51, 20);
-            this.y1TBox.TabIndex = 64;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(12, 94);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(53, 13);
-            this.label13.TabIndex = 61;
-            this.label13.Text = "С шагом:";
-            // 
-            // x1TBox
-            // 
-            this.x1TBox.Location = new System.Drawing.Point(127, 18);
-            this.x1TBox.Name = "x1TBox";
-            this.x1TBox.Size = new System.Drawing.Size(51, 20);
-            this.x1TBox.TabIndex = 63;
-            // 
-            // y0TBox
-            // 
-            this.y0TBox.Location = new System.Drawing.Point(45, 45);
-            this.y0TBox.Name = "y0TBox";
-            this.y0TBox.Size = new System.Drawing.Size(51, 20);
-            this.y0TBox.TabIndex = 62;
-            // 
-            // x0TBox
-            // 
-            this.x0TBox.Location = new System.Drawing.Point(45, 18);
-            this.x0TBox.Name = "x0TBox";
-            this.x0TBox.Size = new System.Drawing.Size(51, 20);
-            this.x0TBox.TabIndex = 56;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(146, 116);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(25, 13);
-            this.label8.TabIndex = 47;
-            this.label8.Text = "= 0 ";
-            // 
-            // FzeroBox
-            // 
-            this.FzeroBox.Location = new System.Drawing.Point(5, 113);
-            this.FzeroBox.Name = "FzeroBox";
-            this.FzeroBox.Size = new System.Drawing.Size(135, 20);
-            this.FzeroBox.TabIndex = 47;
-            // 
-            // FUNbuttonZ
-            // 
-            this.FUNbuttonZ.Location = new System.Drawing.Point(102, 136);
-            this.FUNbuttonZ.Name = "FUNbuttonZ";
-            this.FUNbuttonZ.Size = new System.Drawing.Size(43, 48);
-            this.FUNbuttonZ.TabIndex = 55;
-            this.FUNbuttonZ.Text = "по Z";
-            this.FUNbuttonZ.UseVisualStyleBackColor = true;
-            this.FUNbuttonZ.Click += new System.EventHandler(this.FUNbuttonZ_Click);
-            // 
-            // FUNbuttonY
-            // 
-            this.FUNbuttonY.Location = new System.Drawing.Point(56, 135);
-            this.FUNbuttonY.Name = "FUNbuttonY";
-            this.FUNbuttonY.Size = new System.Drawing.Size(43, 48);
-            this.FUNbuttonY.TabIndex = 54;
-            this.FUNbuttonY.Text = "по Y";
-            this.FUNbuttonY.UseVisualStyleBackColor = true;
-            this.FUNbuttonY.Click += new System.EventHandler(this.FUNbuttonY_Click);
-            // 
-            // FUNbuttonX
-            // 
-            this.FUNbuttonX.Location = new System.Drawing.Point(8, 135);
-            this.FUNbuttonX.Name = "FUNbuttonX";
-            this.FUNbuttonX.Size = new System.Drawing.Size(43, 48);
-            this.FUNbuttonX.TabIndex = 53;
-            this.FUNbuttonX.Text = "по X";
-            this.FUNbuttonX.UseVisualStyleBackColor = true;
-            this.FUNbuttonX.Click += new System.EventHandler(this.FUNbuttonX_Click);
-            // 
-            // texturingGroupBox
-            // 
-            this.texturingGroupBox.Controls.Add(this.buttonTexture);
-            this.texturingGroupBox.Controls.Add(this.loadTextureButton);
-            this.texturingGroupBox.Location = new System.Drawing.Point(1111, 326);
-            this.texturingGroupBox.Margin = new System.Windows.Forms.Padding(2);
-            this.texturingGroupBox.Name = "texturingGroupBox";
-            this.texturingGroupBox.Padding = new System.Windows.Forms.Padding(2);
-            this.texturingGroupBox.Size = new System.Drawing.Size(179, 83);
-            this.texturingGroupBox.TabIndex = 58;
-            this.texturingGroupBox.TabStop = false;
-            this.texturingGroupBox.Text = "Текстурирование";
-            this.texturingGroupBox.Visible = false;
-            // 
-            // buttonTexture
-            // 
-            this.buttonTexture.Location = new System.Drawing.Point(6, 47);
-            this.buttonTexture.Margin = new System.Windows.Forms.Padding(2);
-            this.buttonTexture.Name = "buttonTexture";
-            this.buttonTexture.Size = new System.Drawing.Size(138, 23);
-            this.buttonTexture.TabIndex = 1;
-            this.buttonTexture.Text = "Нанести текстуру";
-            this.buttonTexture.UseVisualStyleBackColor = true;
-            this.buttonTexture.Click += new System.EventHandler(this.buttonTexture_Click);
-            // 
-            // loadTextureButton
-            // 
-            this.loadTextureButton.Location = new System.Drawing.Point(6, 16);
-            this.loadTextureButton.Margin = new System.Windows.Forms.Padding(2);
-            this.loadTextureButton.Name = "loadTextureButton";
-            this.loadTextureButton.Size = new System.Drawing.Size(138, 23);
-            this.loadTextureButton.TabIndex = 0;
-            this.loadTextureButton.Text = "Загрузить текстуру";
-            this.loadTextureButton.UseVisualStyleBackColor = true;
-            this.loadTextureButton.Click += new System.EventHandler(this.loadTextureButton_Click);
-            // 
-            // lightViewPointGroupBox
-            // 
-            this.lightViewPointGroupBox.Controls.Add(this.lightViewPointButton);
-            this.lightViewPointGroupBox.Controls.Add(this.lightViewZLabel);
-            this.lightViewPointGroupBox.Controls.Add(this.lightVieYLabel);
-            this.lightViewPointGroupBox.Controls.Add(this.lightViewXLabel);
-            this.lightViewPointGroupBox.Controls.Add(this.lightViewPointZTextBox);
-            this.lightViewPointGroupBox.Controls.Add(this.lightViewPointYTextBox);
-            this.lightViewPointGroupBox.Controls.Add(this.lightViewPointXTextBox);
-            this.lightViewPointGroupBox.Location = new System.Drawing.Point(1132, 432);
-            this.lightViewPointGroupBox.Margin = new System.Windows.Forms.Padding(2);
-            this.lightViewPointGroupBox.Name = "lightViewPointGroupBox";
-            this.lightViewPointGroupBox.Padding = new System.Windows.Forms.Padding(2);
-            this.lightViewPointGroupBox.Size = new System.Drawing.Size(114, 149);
-            this.lightViewPointGroupBox.TabIndex = 59;
-            this.lightViewPointGroupBox.TabStop = false;
-            this.lightViewPointGroupBox.Text = "Точка света";
-            this.lightViewPointGroupBox.Visible = false;
-            // 
-            // lightViewPointButton
-            // 
-            this.lightViewPointButton.Location = new System.Drawing.Point(17, 106);
-            this.lightViewPointButton.Margin = new System.Windows.Forms.Padding(2);
-            this.lightViewPointButton.Name = "lightViewPointButton";
-            this.lightViewPointButton.Size = new System.Drawing.Size(94, 30);
-            this.lightViewPointButton.TabIndex = 6;
-            this.lightViewPointButton.Text = "Сместить";
-            this.lightViewPointButton.UseVisualStyleBackColor = true;
-            this.lightViewPointButton.Click += new System.EventHandler(this.lightViewPointButton_Click);
-            // 
-            // lightViewZLabel
-            // 
-            this.lightViewZLabel.AutoSize = true;
-            this.lightViewZLabel.Location = new System.Drawing.Point(14, 82);
-            this.lightViewZLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lightViewZLabel.Name = "lightViewZLabel";
-            this.lightViewZLabel.Size = new System.Drawing.Size(14, 13);
-            this.lightViewZLabel.TabIndex = 5;
-            this.lightViewZLabel.Text = "Z";
-            // 
-            // lightVieYLabel
-            // 
-            this.lightVieYLabel.AutoSize = true;
-            this.lightVieYLabel.Location = new System.Drawing.Point(14, 55);
-            this.lightVieYLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lightVieYLabel.Name = "lightVieYLabel";
-            this.lightVieYLabel.Size = new System.Drawing.Size(14, 13);
-            this.lightVieYLabel.TabIndex = 4;
-            this.lightVieYLabel.Text = "Y";
-            // 
-            // lightViewXLabel
-            // 
-            this.lightViewXLabel.AutoSize = true;
-            this.lightViewXLabel.Location = new System.Drawing.Point(14, 28);
-            this.lightViewXLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lightViewXLabel.Name = "lightViewXLabel";
-            this.lightViewXLabel.Size = new System.Drawing.Size(14, 13);
-            this.lightViewXLabel.TabIndex = 3;
-            this.lightViewXLabel.Text = "X";
-            // 
-            // lightViewPointZTextBox
-            // 
-            this.lightViewPointZTextBox.Location = new System.Drawing.Point(60, 81);
-            this.lightViewPointZTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.lightViewPointZTextBox.Name = "lightViewPointZTextBox";
-            this.lightViewPointZTextBox.Size = new System.Drawing.Size(52, 20);
-            this.lightViewPointZTextBox.TabIndex = 2;
-            // 
-            // lightViewPointYTextBox
-            // 
-            this.lightViewPointYTextBox.Location = new System.Drawing.Point(60, 55);
-            this.lightViewPointYTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.lightViewPointYTextBox.Name = "lightViewPointYTextBox";
-            this.lightViewPointYTextBox.Size = new System.Drawing.Size(52, 20);
-            this.lightViewPointYTextBox.TabIndex = 1;
-            // 
-            // lightViewPointXTextBox
-            // 
-            this.lightViewPointXTextBox.Location = new System.Drawing.Point(60, 25);
-            this.lightViewPointXTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.lightViewPointXTextBox.Name = "lightViewPointXTextBox";
-            this.lightViewPointXTextBox.Size = new System.Drawing.Size(52, 20);
-            this.lightViewPointXTextBox.TabIndex = 0;
-            // 
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.SystemColors.ScrollBar;
@@ -1469,9 +1126,9 @@
             this.panel1.Controls.Add(this.groupBox4);
             this.panel1.Controls.Add(this.groupBox5);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(541, 0);
+            this.panel1.Location = new System.Drawing.Point(547, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(765, 701);
+            this.panel1.Size = new System.Drawing.Size(759, 701);
             this.panel1.TabIndex = 63;
             // 
             // Form1
@@ -1480,9 +1137,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1306, 701);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.lightViewPointGroupBox);
-            this.Controls.Add(this.texturingGroupBox);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.polyhedronPictureBox);
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.MaximizeBox = false;
@@ -1514,11 +1168,6 @@
             this.facetsRemovingGroupBox.ResumeLayout(false);
             this.cameraGroupBox.ResumeLayout(false);
             this.cameraGroupBox.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.texturingGroupBox.ResumeLayout(false);
-            this.lightViewPointGroupBox.ResumeLayout(false);
-            this.lightViewPointGroupBox.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
@@ -1619,37 +1268,6 @@
         private System.Windows.Forms.TextBox cameraAngleXTextBox;
         private System.Windows.Forms.Button translateCameraButton;
         private System.Windows.Forms.Button rotateCameraButton;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox z1TBox;
-        private System.Windows.Forms.TextBox z0TBox;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox splittingTBox;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox y1TBox;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox x1TBox;
-        private System.Windows.Forms.TextBox y0TBox;
-        private System.Windows.Forms.TextBox x0TBox;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox FzeroBox;
-        private System.Windows.Forms.Button FUNbuttonZ;
-        private System.Windows.Forms.Button FUNbuttonY;
-        private System.Windows.Forms.Button FUNbuttonX;
-        private System.Windows.Forms.GroupBox texturingGroupBox;
-        private System.Windows.Forms.Button loadTextureButton;
-        private System.Windows.Forms.GroupBox lightViewPointGroupBox;
-        private System.Windows.Forms.Button lightViewPointButton;
-        private System.Windows.Forms.Label lightViewZLabel;
-        private System.Windows.Forms.Label lightVieYLabel;
-        private System.Windows.Forms.Label lightViewXLabel;
-        private System.Windows.Forms.TextBox lightViewPointZTextBox;
-        private System.Windows.Forms.TextBox lightViewPointYTextBox;
-        private System.Windows.Forms.TextBox lightViewPointXTextBox;
-        private System.Windows.Forms.Button buttonTexture;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.GroupBox groupBox6;

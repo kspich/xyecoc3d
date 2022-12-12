@@ -136,7 +136,6 @@ namespace lab6
             // проекция влияет на отображение фигуры а не на перемещение в пространстве
             var size = polyhedronPictureBox.Size;
             var bitmap = new Bitmap(size.Width, size.Height);
-            //DrawEdges(bitmap);
             switch (currentFacetsRemovingType)
             {
                 case FacetRemovingType.None:
@@ -144,10 +143,7 @@ namespace lab6
                     break;
                 case FacetRemovingType.ZBuffer:
                     DrawZBuffer(bitmap);
-                    break;
-                case FacetRemovingType.ZBufferWithTexturing:
-                    DrawTexture(bitmap);
-                    break;
+                    break;               
                 case FacetRemovingType.BackfaceCulling:
                     DrawBackfaceCulling(bitmap);
                     break;
@@ -699,7 +695,7 @@ namespace lab6
                     }
                 }
             }
-            //DrawEdges(drawingSurface);
+            
         }
 
         private void DrawZBuffer(Bitmap drawingSurface)
@@ -717,8 +713,7 @@ namespace lab6
                     var triangulatedFacet = TriangulateFacet(facets);
                     var color = Color.FromArgb(random.Next(255), random.Next(255), random.Next(255));
                     foreach (var triangle in triangulatedFacet)
-                    {
-                        //ZBufer(zBuffer, triangle, itemCopy.Color);
+                    {                    
                         ZBufer(zBuffer, triangle, itemCopy.Color);
                     }
                 }
@@ -728,270 +723,11 @@ namespace lab6
             polyhedronPictureBox.Image = drawingSurface;
         }
 
-        private string function_string(char c)
-        {
-            string str = FzeroBox.Text;
-            if (c == 'y')
-            {
-                str = str.Replace('x', 'Z');
-                str = str.Replace('z', 'Y');
-                str = str.Replace('y', 'X');
-                str = str.Replace('X', 'x');
-                str = str.Replace('Y', 'y');
-                str = str.Replace('Z', 'z');
-                return str;
-            }
-            if(c == 'z')
-            {
-                str = str.Replace('y', 'Z');
-                str = str.Replace('x', 'Y');
-                str = str.Replace('z', 'X');
-                str = str.Replace('X', 'x');
-                str = str.Replace('Y', 'y');
-                str = str.Replace('Z', 'z');
-                return str;
-            }
-            return str;
-        }
-
-        private struct LimitationsFunction
-        {
-            public int x0;
-            public int x1;
-            public int y0;
-            public int y1;
-            public int z0;
-            public int z1;
-        }
-
-        private LimitationsFunction MakeLimitationsFunction(char c)
-        {
-            int x0 = 0;
-            int x1 = 0;
-            int y0 = 0;
-            int y1 = 0;
-            int z0 = 0;
-            int z1 = 0;
-
-            bool b = int.TryParse(x0TBox.Text, out x0);
-            b = b && int.TryParse(x1TBox.Text, out x1);
-            b = b && int.TryParse(y0TBox.Text, out y0);
-            b = b && int.TryParse(y1TBox.Text, out y1);
-            b = b && int.TryParse(z0TBox.Text, out z0);
-            b = b && int.TryParse(z1TBox.Text, out z1);
-
-            if (!b)
-                MessageBox.Show("Введите числа корректно!");
-
-            LimitationsFunction LF = new LimitationsFunction();
-
-            if (c == 'x')
-            {
-                LF.x0 = x0;
-                LF.x1 = x1;
-                LF.y0 = y0;
-                LF.y1 = y1;
-                LF.z0 = z0;
-                LF.z1 = z1;
-            }
-            if (c == 'y')
-            {
-                LF.x0 = y0;
-                LF.x1 = y1;
-                LF.y0 = z0;
-                LF.y1 = z1;
-                LF.z0 = x0;
-                LF.z1 = x1;
-            }
-            if (c == 'z')
-            {
-                LF.x0 = z0;
-                LF.x1 = z1;
-                LF.y0 = x0;
-                LF.y1 = x1;
-                LF.z0 = y0;
-                LF.z1 = y1;
-            }
-
-            var size = polyhedronPictureBox.Size;
-            if (LF.y0 < 0)
-                LF.y0 = 0;
-            if (LF.z0 < 0)
-                LF.z0 = 0;
-            if (LF.y1 > size.Width-1)
-                LF.y1 = size.Width - 1;
-            if (LF.z1 > size.Height - 1)
-                LF.z1 = size.Height - 1;
-
-            return LF;
-        }
-
-        private void PaintArr(bool[,] Arr, Bitmap drawingSurface)
-        {
-            int h = drawingSurface.Height;
-            for (int i = 0; i < drawingSurface.Width; i++)
-                for (int j = 0; j < h; j++)
-                    if(Arr[i,j])
-                        drawingSurface.SetPixel(i, h-j-1, Color.Red);
-        }
-
-        private int MakeZF(string FSTR,int y, LimitationsFunction LF)
-        {
-            string FSTR_0 = FSTR.Replace("y", "" + y);
-            double t = double.MaxValue;
-            double find_z = 0;
-            for (int i = LF.z0; i <= LF.z1; i++)
-            {
-                double d;
-                string FSTR_new = FSTR_0.Replace("z", "" + i);
-                try
-                {
-                    string result = new DataTable().Compute(FSTR_new, null).ToString();
-                    d = double.Parse(result);
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Введите функцию корректно!");
-                    throw;
-                }
-                if (Math.Abs(d)<t)
-                {
-                    t = Math.Abs(d);
-                    find_z = i;
-                }
-            }
-            if ((find_z == LF.z1)|| (find_z == LF.z0))
-                return 0;
-            return (int)find_z;
-        }
-
-        private void GorizontFunction(string FSTR, LimitationsFunction LF,int splitting)
-        {
-            var size = polyhedronPictureBox.Size;
-            var drawingSurface = new Bitmap(size.Width, size.Height);
-
-            int[] MaxForY = new int[size.Width];
-            int[] MinForY = new int[size.Width];
-
-            for (int i = 0; i < size.Width; i++)
-            {
-                MaxForY[i] = int.MinValue;
-                MinForY[i] = int.MaxValue;
-            }
-
-            bool[,] Arr = new bool[size.Width, size.Height];
-
-            double k = (LF.x1 - LF.x0) / splitting;
-
-            bool start = true;
-
-            for (double x = LF.x1; x >= LF.x0; x-=k)
-            {
-                string str = "" + x;
-                string FSTR_new = FSTR.Replace("x", str);
-                int zpr = MakeZF(FSTR_new, LF.y0, LF);
-                int u = 1;
-                while ((zpr == 0)&&(u<= size.Width))
-                {
-                    zpr = MakeZF(FSTR_new, LF.y0 + u, LF);
-                    u++;
-                }
-                for (int i = LF.y0; i <= LF.y1; i++)
-                {
-                    int z = MakeZF(FSTR_new, i,LF);
-                    if (z != 0)
-                    {
-                        if (!start)
-                        {
-                            for (int ii = zpr; ii <= z; ii++)
-                                if ((ii > MaxForY[i]) || (ii < MinForY[i]))
-                                    Arr[i, ii] = true;
-                            for (int ii = z; ii < zpr; ii++)
-                                if ((ii > MaxForY[i]) || (ii < MinForY[i]))
-                                    Arr[i, ii] = true;
-                            if (z > MaxForY[i])
-                                MaxForY[i] = z;
-                            if (z < MinForY[i])
-                                MinForY[i] = z;
-                        }
-                        else
-                        {
-                            for (int ii = zpr; ii <= z; ii++)
-                                Arr[i, ii] = true;
-                            for (int ii = z; ii < zpr; ii++)
-                                Arr[i, ii] = true;
-                            MaxForY[i] = z;
-                            MinForY[i] = z;
-                        }
-                        zpr = z;
-                    }
-                }
-                start = false;
-            }
-            PaintArr(Arr, drawingSurface);
-            polyhedronPictureBox.Image = drawingSurface;
-        }
-
-        private void FUNbuttonX_Click(object sender, EventArgs e)
-        {
-            string FSTR = function_string('x');
-            LimitationsFunction LF = MakeLimitationsFunction('x');
-            int splitting;
-            bool b =int.TryParse(splittingTBox.Text, out splitting);
-            if (!b)
-            {
-                MessageBox.Show("Введите количество шагов корректно!");
-                return;
-            }
-            if(splitting<=0)
-            {
-                MessageBox.Show("Введите количество шагов корректно!");
-                return;
-            }
-            GorizontFunction(FSTR, LF, splitting);
-        }
-
-        private void FUNbuttonY_Click(object sender, EventArgs e)
-        {
-            string FSTR = function_string('y');
-            LimitationsFunction LF = MakeLimitationsFunction('y');
-            int splitting;
-            bool b = int.TryParse(splittingTBox.Text, out splitting);
-            if (!b)
-            {
-                MessageBox.Show("Введите количество шагов корректно!");
-                return;
-            }
-            if (splitting <= 0)
-            {
-                MessageBox.Show("Введите количество шагов корректно!");
-                return;
-            }
-            GorizontFunction(FSTR, LF, splitting);
-        }
-
-        private void FUNbuttonZ_Click(object sender, EventArgs e)
-        {
-            string FSTR = function_string('z');
-            LimitationsFunction LF = MakeLimitationsFunction('z');
-            int splitting;
-            bool b = int.TryParse(splittingTBox.Text, out splitting);
-            if (!b)
-            {
-                MessageBox.Show("Введите количество шагов корректно!");
-                return;
-            }
-            if (splitting <= 0)
-            {
-                MessageBox.Show("Введите количество шагов корректно!");
-                return;
-            }
-            GorizontFunction(FSTR, LF, splitting);
-        }
+        
         
         private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            //currentFacetsRemovingType = facetsRemovingTypes[facetsRemovingComboBox.SelectedIndex];
+            
         }
 
         private void facetsRemovingComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -1020,7 +756,6 @@ namespace lab6
                 return;
             }
 
-            //Point3D CNTR = ListPolyhedron.CommonCenter();
             Point3d CNTR = new Point3d(250, 250, 250);
             foreach (var item in ListPolyhedron)
             {
@@ -1055,137 +790,34 @@ namespace lab6
             Project();
         }
 
-        private void loadTextureButton_Click(object sender, EventArgs e)
+        
+
+        private void polyhedronSelectionComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            var ofd = new OpenFileDialog();
-            ofd.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*";
-            if (ofd.ShowDialog() == DialogResult.OK)
-            {
-                TextureImage = new Bitmap(ofd.FileName);
-                IsTexture = true;
-            }
         }
 
-        private void buttonTexture_Click(object sender, EventArgs e)
+        private void groupBox3_Enter(object sender, EventArgs e)
         {
-            if (!IsTexture)
-            {
-                MessageBox.Show("Выберете текстуру!");
-                return;
-            }
-            var size = polyhedronPictureBox.Size;
-            var drawingSurface = new Bitmap(size.Width, size.Height);
-            DrawTexture(drawingSurface);
-            polyhedronPictureBox.Image = drawingSurface;
-        }
 
-        private void DrawTexture(Bitmap drawingSurface)
-        {
-            var size = drawingSurface.Size;
-            var zBuffer = new ZBuferStruct[size.Width, size.Height];
-
-            foreach (var item in ListPolyhedron)
-            {
-                var itemCopy = camera.Project(item, currentProjectionType);
-
-                var random = new Random();
-                foreach (var facets in itemCopy.Facets)
-                {
-                    var zBufferFacet = new ZBuferStruct[size.Width, size.Height];
-
-                    var triangulatedFacet = TriangulateFacet(facets);
-                    var color = itemCopy.Color;
-                    foreach (var triangle in triangulatedFacet)
-                    {
-                        ZBufer(zBufferFacet, triangle, color);
-                    }
-                    MakeTexture(zBufferFacet, facets);
-                    zBufferUnite(zBuffer, zBufferFacet);
-                }
-
-            }
-            PaintZBufer(zBuffer, drawingSurface);
-
-            polyhedronPictureBox.Image = drawingSurface;
-        }
-
-        private void zBufferUnite(ZBuferStruct[,] ZBuferArr, ZBuferStruct[,] ZB)
-        {
-            var size = polyhedronPictureBox.Size;
-
-            for (int i = 0; i < size.Width; i++)
-                for (int j = 0; j < size.Height; j++)
-                    if (ZB[i, j].IsNotEmpty && ((ZBuferArr[i, j].IsNotEmpty && (ZB[i, j].Depth > ZBuferArr[i, j].Depth)) || !ZBuferArr[i, j].IsNotEmpty))
-                        ZBuferArr[i, j] = ZB[i, j];
-        }
-
-        private void MakeTexture(ZBuferStruct[,] ZBuferArr, Facet3d facet)
-        {
-            double t = 1.7;
-            var size = polyhedronPictureBox.Size;
-
-            Bitmap BM = MakeNaklon(TextureImage, facet);
-
-            int w = BM.Width;
-            int h = BM.Height;
-            for (int i = 0; i < size.Width; i++)
-                for (int j = 0; j < size.Height; j++)
-                    if (ZBuferArr[i, j].IsNotEmpty)
-                    {
-                        int ww = i % w;
-                        int hh = j % h;
-
-                        if (BM.GetPixel(ww, hh).G == 0)
-                        {
-                            Color c = ZBuferArr[i, j].Color;
-                            int r = (int)(c.R * t);
-                            if (r > 255)
-                                r = 255;
-                            int g = (int)(c.G * t);
-                            if (g > 255)
-                                g = 255;
-                            int b = (int)(c.B * t);
-                            if (b > 255)
-                                b = 255;
-                            ZBuferArr[i, j].Color = Color.FromArgb(r, g, b);
-                        }
-                    }
-        }
-
-        private Bitmap MakeNaklon(Bitmap TImage, Facet3d facet)
-        {
-            //TO DO:
-            //наклонить изображение так, чтобы оно было в плоскости facet'a
-            return TImage;
         }
 
         private void lightViewPointButton_Click(object sender, EventArgs e)
         {
-            if (!int.TryParse(lightViewPointXTextBox.Text, out int x))
-            {
-                WarnInvalidInput();
-                return;
-            }
 
-            if (!int.TryParse(lightViewPointYTextBox.Text, out int y))
-            {
-                WarnInvalidInput();
-                return;
-            }
-
-            if (!int.TryParse(lightViewPointZTextBox.Text, out int z))
-            {
-                WarnInvalidInput();
-                return;
-            }
-            LightViewPoint.X = x;
-            LightViewPoint.Y = y;
-            LightViewPoint.Z = z;
-            Project();
         }
 
-        private void polyhedronSelectionComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void FUNbuttonX_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FUNbuttonY_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FUNbuttonZ_Click(object sender, EventArgs e)
         {
 
         }
