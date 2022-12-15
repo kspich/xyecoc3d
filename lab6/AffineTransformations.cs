@@ -93,8 +93,6 @@ namespace lab6
             foreach (var vertex in polyhedron.Vertices)
             {
                 TransformVectorInplace(vertex.Normal, transformation);
-                var v = vertex.Normal;
-                Console.WriteLine($"{v.X}, {v.Y}, {v.Z}");
             }
             foreach (var facet in polyhedron.Facets)
             {

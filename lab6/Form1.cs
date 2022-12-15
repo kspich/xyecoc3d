@@ -26,7 +26,7 @@ namespace lab6
         private CoordinatePlaneType[] reflectionCoordinatePlaneTypes;
         private string[] reflectionCoordinatePlaneNames;
 
-        private Camera camera = new Camera(400, 400, 1.4*400);
+        private Camera camera = new Camera(500, 500, 500);
 
         private FacetRemovingType[] facetsRemovingTypes;
         private string[] facetsRemovingNames;
@@ -145,16 +145,15 @@ namespace lab6
                 case FacetRemovingType.ZBuffer:
                     DrawZBuffer(bitmap);
                     break;
-                case FacetRemovingType.ZBufferWithTexturing:
-                    DrawTexture(bitmap);
-                    break;
+                //case FacetRemovingType.ZBufferWithTexturing:
+                //    DrawTexture(bitmap);
+                //    break;
                 case FacetRemovingType.BackfaceCulling:
                     DrawBackfaceCulling(bitmap);
                     break;
                 default:
                     break;
             }
-            
             polyhedronPictureBox.Image = bitmap;
         }
         
@@ -277,6 +276,7 @@ namespace lab6
         private void polyhedronComboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
             currentPolyhedron = polyhedronTypes[polyhedronSelectionComboBox.SelectedIndex].CreatePolyhedron();
+            currentPolyhedron.Translate(200, 200, 0);
             ListPolyhedron.Add(currentPolyhedron);
             ChoiceComboBox.Items.Add(ListPolyhedron.Count);
             ChoiceComboBox.SelectedIndex = ListPolyhedron.Count - 1;
@@ -1186,6 +1186,16 @@ namespace lab6
         }
 
         private void polyhedronSelectionComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void projectionSelectionLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void polyhedronPictureBox_Click(object sender, EventArgs e)
         {
 
         }

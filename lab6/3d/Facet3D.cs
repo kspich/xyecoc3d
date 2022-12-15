@@ -20,7 +20,6 @@ namespace lab6
         {
             Points = points;
             Edges = edges;
-            //Texture = new List<List<Point>>();
             Normal = ComputeNormal(edges[0], edges[1]);
             Normal.NormalizeInplace();
             foreach (var p in Points)

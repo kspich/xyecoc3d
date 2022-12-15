@@ -53,12 +53,12 @@ namespace lab6
                 foreach (var p in facet.Points)
                 {
                     int pointIndex = Vertices.FindIndex(v => p == v);
-                    sb.Append($"vi {pointIndex}\n");
+                    sb.Append($"fv {pointIndex}\n");
                 }
                 foreach (var edge in facet.Edges)
                 {
                     int edgeIndex = Edges.FindIndex(e => e == edge);
-                    sb.Append($"ei {edgeIndex}\n");
+                    sb.Append($"fe {edgeIndex}\n");
                 }
                 sb.Append("endfacet\n");
             }
@@ -70,22 +70,26 @@ namespace lab6
             var vertices = new List<Point3d>();
             var edges = new List<Edge3d>();
             var facets = new List<Facet3d>();
-            Facet3d currentFacet = null;
+
+            var fVertices = new List<Point3d>();
+            var fEdges = new List<Edge3d>();
+
+            bool facet = false;
             foreach (var line in File.ReadLines(path))
             {
                 var splited = line.Split();
 
-                if (currentFacet != null)
+                if (facet)
                 {
-                    if (splited[0] == "vi")
+                    if (splited[0] == "fv")
                     {
                         int vertexIndex = int.Parse(splited[1]);
-                        currentFacet.AddPoint(vertices[vertexIndex]);
+                        fVertices.Add(vertices[vertexIndex]);
                     }
-                    else if (splited[0] == "ei")
+                    else if (splited[0] == "fv")
                     {
                         int edgeIndex = int.Parse(splited[1]);
-                        currentFacet.AddEdge(edges[edgeIndex]);
+                        fEdges.Add(edges[edgeIndex]);
                     }
                 }
                 else if (splited[0] == "v")
@@ -103,12 +107,14 @@ namespace lab6
                 }
                 else if (splited[0] == "facet")
                 {
-                    currentFacet = new Facet3d();
+                    facet = true;
                 }
                 else if (splited[0] == "endfacet")
                 {
-                    facets.Add(currentFacet);
-                    currentFacet = null;
+                    facets.Add(new Facet3d(fVertices, fEdges));
+
+                    fVertices = new List<Point3d>();
+                    fEdges = new List<Edge3d>();
                 }
             }
             return new Polyhedron(vertices, edges, facets);
@@ -263,17 +269,17 @@ namespace lab6
     {
         public static void DrawPolyhedron(this Bitmap drawingSurface, Polyhedron polyhedron, Color color)
         {
-            using (var fastDrawingSurface = new FastBitmap(drawingSurface))
+            using (var bitmap = new FastBitmap(drawingSurface))
             {
-                fastDrawingSurface.DrawPolyhedron(polyhedron, color);
+                bitmap.DrawPolyhedron(polyhedron, color);
             }
         }
 
-        public static void DrawPolyhedron(this FastBitmap fastDrawingSurface, Polyhedron polyhedron, Color color)
+        public static void DrawPolyhedron(this FastBitmap bitmap, Polyhedron polyhedron, Color color)
         {
             foreach (var edge in polyhedron.Edges)
             {
-                fastDrawingSurface.DrawLine(edge.Begin.ToPoint(), edge.End.ToPoint(), color);
+                bitmap.DrawLine(edge.Begin.ToPoint(), edge.End.ToPoint(), color);
             }
         }
     }
