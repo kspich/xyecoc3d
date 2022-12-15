@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace lab6
 {
-    public class Point3d : IIdentifiable<long>
+    public class Point3d //: IIdentifiable<long>
     {
         private static long nextId = 0;
         public double X { get; set; }

@@ -3,7 +3,7 @@ using System;
 
 namespace lab6
 {
-    public class Edge3d : IIdentifiable<long>, IEquatable<Edge3d>
+    public class Edge3d //: IIdentifiable<long>, IEquatable<Edge3d>
     {
         private static long nextId = 0;
         public Point3d Begin { get; set; }
