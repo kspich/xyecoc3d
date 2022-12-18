@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Math;
 using System.Windows.Forms;
 
 namespace lab6
@@ -17,6 +18,8 @@ namespace lab6
 
     public partial class Form1 : Form
     {
+
+
         private PolyhedronType[] polyhedronTypes;
         private string[] polyhedronNames;
         private Projection[] projectionTypes;
@@ -135,8 +138,7 @@ namespace lab6
             // Перед проецированием обязательно создается копия т.к.
             // проекция влияет на отображение фигуры а не на перемещение в пространстве
             var size = polyhedronPictureBox.Size;
-            var bitmap = new Bitmap(size.Width, size.Height);
-            //DrawEdges(bitmap);
+            var bitmap = new Bitmap(size.Width, size.Height);           
             switch (currentFacetsRemovingType)
             {
                 case FacetRemovingType.None:
@@ -144,10 +146,7 @@ namespace lab6
                     break;
                 case FacetRemovingType.ZBuffer:
                     DrawZBuffer(bitmap);
-                    break;
-                //case FacetRemovingType.ZBufferWithTexturing:
-                //    DrawTexture(bitmap);
-                //    break;
+                    break;            
                 case FacetRemovingType.BackfaceCulling:
                     DrawBackfaceCulling(bitmap);
                     break;
@@ -440,31 +439,34 @@ namespace lab6
             Project();
         }
 
-        private double f(double x,double y)
-        {
-            string str = FtextBox.Text;
-            string s1 = "" + x;
-            string s2 = "" + y;
-            str = str.Replace("x", s1);
-            str = str.Replace("y", s2);
-            double d;
-            try
-            {
-                string result = new DataTable().Compute(str, null).ToString();
-                d = double.Parse(result);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Введите функцию корректно!");
-                return double.MaxValue;
-                throw;
-            }
-            return d;
-        }
+        
 
-
+        delegate double func(double x, double y);
         private void building_function(object sender, EventArgs e)
         {
+            func f;
+            switch (listBox1.SelectedIndex)
+            {
+                case 0:
+                    f = (arg1, arg2) => (double)(Cos(arg1 * arg1 + arg2 * arg2) / (arg1 * arg1 + arg2 * arg2 + 1));
+                    break;
+                case 1:
+                    f = (arg1, arg2) => (double)(Sin(arg1 + arg2));
+                    break;
+                case 2:
+                    f = (arg1, arg2) => (double)(1 / (1 + arg1 * arg1) + 1 / (1 + arg2 * arg2));
+                    break;
+                case 3:
+                    f = (arg1, arg2) => (double)(Sin(arg1 * arg1 + arg2 * arg2));
+                    break;
+                case 4:
+                    f = (arg1, arg2) => (double)(Sqrt(50 - arg1 * arg1 - arg2 * arg2));
+                    break;
+                default:
+                    f = (arg1, arg2) => 0;
+                    break;
+            }
+
             bool b;
             double x0=0;
             double x1=0;
@@ -533,7 +535,7 @@ namespace lab6
                 facets.Add(new Facet3d(new List<Point3d> { Arr[splitting - 1][j], Arr[splitting ][j], Arr[splitting - 1][j + 1], Arr[splitting ][j + 1] }, new List<Edge3d> { edges[2 * (splitting * (splitting - 1) + j)], edges[2 * (splitting * (splitting - 1) + j) + 1], edges[2 * (splitting * (splitting - 1) + j) + 2], edges[t+j] }));
             t--;
             facets.Add(new Facet3d(new List<Point3d> { Arr[splitting - 1][splitting - 1], Arr[splitting][splitting - 1], Arr[splitting - 1][splitting], Arr[splitting][splitting] }, new List<Edge3d> { edges[2 * (splitting * (splitting - 1) + (splitting - 1))], edges[2 * (splitting * (splitting - 1) + (splitting - 1)) + 1], edges[t], edges[t+ splitting] }));
-
+            
             currentPolyhedron =  new Polyhedron(vertices, edges, facets);
             ListPolyhedron.Add(currentPolyhedron);
             ChoiceComboBox.Items.Add(ListPolyhedron.Count);
@@ -803,60 +805,11 @@ namespace lab6
             Project();
         }
 
-        private void loadTextureButton_Click(object sender, EventArgs e)
-        {
+      
 
-            var ofd = new OpenFileDialog();
-            ofd.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*";
-            if (ofd.ShowDialog() == DialogResult.OK)
-            {
-                TextureImage = new Bitmap(ofd.FileName);
-                IsTexture = true;
-            }
-        }
+      
 
-        private void buttonTexture_Click(object sender, EventArgs e)
-        {
-            if (!IsTexture)
-            {
-                MessageBox.Show("Выберете текстуру!");
-                return;
-            }
-            var size = polyhedronPictureBox.Size;
-            var drawingSurface = new Bitmap(size.Width, size.Height);
-            DrawTexture(drawingSurface);
-            polyhedronPictureBox.Image = drawingSurface;
-        }
-
-        private void DrawTexture(Bitmap drawingSurface)
-        {
-            var size = drawingSurface.Size;
-            var zBuffer = new ZBuferStruct[size.Width, size.Height];
-
-            foreach (var item in ListPolyhedron)
-            {
-                var itemCopy = camera.Project(item, currentProjectionType);
-
-                var random = new Random();
-                foreach (var facets in itemCopy.Facets)
-                {
-                    var zBufferFacet = new ZBuferStruct[size.Width, size.Height];
-
-                    var triangulatedFacet = TriangulateFacet(facets);
-                    var color = itemCopy.Color;
-                    foreach (var triangle in triangulatedFacet)
-                    {
-                        ZBufer(zBufferFacet, triangle, color);
-                    }
-                    MakeTexture(zBufferFacet, facets);
-                    zBufferUnite(zBuffer, zBufferFacet);
-                }
-
-            }
-            PaintZBufer(zBuffer, drawingSurface);
-
-            polyhedronPictureBox.Image = drawingSurface;
-        }
+       
 
         private void zBufferUnite(ZBuferStruct[,] ZBuferArr, ZBuferStruct[,] ZB)
         {
@@ -868,38 +821,7 @@ namespace lab6
                         ZBuferArr[i, j] = ZB[i, j];
         }
 
-        private void MakeTexture(ZBuferStruct[,] ZBuferArr, Facet3d facet)
-        {
-            double t = 1.7;
-            var size = polyhedronPictureBox.Size;
-
-            Bitmap BM = MakeNaklon(TextureImage, facet);
-
-            int w = BM.Width;
-            int h = BM.Height;
-            for (int i = 0; i < size.Width; i++)
-                for (int j = 0; j < size.Height; j++)
-                    if (ZBuferArr[i, j].IsNotEmpty)
-                    {
-                        int ww = i % w;
-                        int hh = j % h;
-
-                        if (BM.GetPixel(ww, hh).G == 0)
-                        {
-                            Color c = ZBuferArr[i, j].Color;
-                            int r = (int)(c.R * t);
-                            if (r > 255)
-                                r = 255;
-                            int g = (int)(c.G * t);
-                            if (g > 255)
-                                g = 255;
-                            int b = (int)(c.B * t);
-                            if (b > 255)
-                                b = 255;
-                            ZBuferArr[i, j].Color = Color.FromArgb(r, g, b);
-                        }
-                    }
-        }
+       
 
         private Bitmap MakeNaklon(Bitmap TImage, Facet3d facet)
         {
@@ -919,6 +841,11 @@ namespace lab6
         }
 
         private void polyhedronPictureBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
         {
 
         }
