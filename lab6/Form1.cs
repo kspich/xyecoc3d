@@ -56,8 +56,6 @@ namespace lab6
         private bool IsTexture = false;
         private Bitmap TextureImage;
 
-        private Point3d LightViewPoint = new Point3d(400, 0, 400);
-
         public Form1()
         {
             InitializeComponent();
@@ -655,9 +653,9 @@ namespace lab6
 
         IEnumerable<DeptherizedPoint> TriangleToListPoint(Facet3d triangle)
         {
-            var v1 = DeptherizedPoint.FromPoint3D(triangle.Points[0], LightViewPoint);
-            var v2 = DeptherizedPoint.FromPoint3D(triangle.Points[1], LightViewPoint);
-            var v3 = DeptherizedPoint.FromPoint3D(triangle.Points[2], LightViewPoint);
+            var v1 = DeptherizedPoint.FromPoint3D(triangle.Points[0]);
+            var v2 = DeptherizedPoint.FromPoint3D(triangle.Points[1]);
+            var v3 = DeptherizedPoint.FromPoint3D(triangle.Points[2]);
             var rasterizedPoints = RasteriseTriangle(v1, v2, v3);
             return rasterizedPoints;
         }
@@ -675,10 +673,8 @@ namespace lab6
                 {
                     if ((!ZBuferArr[item.X, item.Y].IsNotEmpty) || (depth > ZBuferArr[item.X, item.Y].Depth))
                     {
-                        var intensivity = item.Intensivity;
-                        var intensivityCOlor = Color.FromArgb((int)(Clr.R * intensivity), (int)(Clr.G * intensivity), (int)(Clr.B * intensivity));
                         ZBuferArr[item.X, item.Y].Depth = depth;
-                        ZBuferArr[item.X, item.Y].Color = intensivityCOlor;//Clr;
+                        ZBuferArr[item.X, item.Y].Color = Clr;
                         ZBuferArr[item.X, item.Y].IsNotEmpty = true;
                     }
                 }
@@ -717,11 +713,11 @@ namespace lab6
                 foreach (var facets in itemCopy.Facets)
                 {
                     var triangulatedFacet = TriangulateFacet(facets);
-                    var color = Color.FromArgb(random.Next(255), random.Next(255), random.Next(255));
+                    Color color;
                     foreach (var triangle in triangulatedFacet)
                     {
-                        //ZBufer(zBuffer, triangle, itemCopy.Color);
-                        ZBufer(zBuffer, triangle, itemCopy.Color);
+                        color = Color.FromArgb(random.Next(255), random.Next(255), random.Next(255));
+                        ZBufer(zBuffer, triangle, color);
                     }
                 }
             }

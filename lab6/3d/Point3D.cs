@@ -62,14 +62,12 @@ namespace lab6
             X = x;
             Y = y;
             Depth = depth;
-            Intensivity = intensivity;
         }
 
-        public static DeptherizedPoint FromPoint3D(Point3d point, Point3d lightpoint)
+        public static DeptherizedPoint FromPoint3D(Point3d point)
         {
             var p = point.ToPoint();
-            var intensivity = ComputeIntensivityLambert(point, lightpoint);
-            return new DeptherizedPoint(p.X, p.Y, point.Z, intensivity);
+            return new DeptherizedPoint(p.X, p.Y, point.Z, 0);
         }
 
         private static double ComputeIntensivityLambert(Point3d direction, Point3d lightpoint)
