@@ -7,7 +7,7 @@ namespace lab6
 {
     public class Point3d //: IIdentifiable<long>
     {
-        private static long nextId = 0;
+        private static long nextId = 0;       
         public double X { get; set; }
         public double Y { get; set; }
         public double Z { get; set; }
@@ -33,6 +33,11 @@ namespace lab6
             Normal = new Vector3d();
         }
 
+        static public Point3d operator -(Point3d point1, Point3d point2)
+        {
+            return new Point3d(point1.X - point2.X, point1.Y - point2.Y, point1.Z - point2.Z);
+        }
+
         public Vector3d ToVector3d() => new Vector3d(X, Y, Z, 1);
 
         public Point ToPoint() => new Point((int)X, (int)Y);
@@ -42,6 +47,8 @@ namespace lab6
         public bool Equals(Point3d other) => Id == other.Id;
 
         public override int GetHashCode() => Id.GetHashCode();
+
+       
     }
     public class DeptherizedPoint
     {
